@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: app3-nginx-deployment
+spec:
+ selector:
+   matchLabels:
+     app: app3-nginx-deployment
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       app: app3-nginx-deployment
+   spec:
+     containers:
+     - name: app3-nginx-deployment
+       image: k8s.gcr.io/hpa-example
+       ports:
+       - containerPort: 80
+       resources:
+         limits:
+           cpu: 500m
+         requests:
+           cpu: 200m

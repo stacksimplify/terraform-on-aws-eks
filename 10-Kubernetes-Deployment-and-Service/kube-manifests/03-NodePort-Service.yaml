@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: myapp1-nodeport-service
+spec:
+  type: NodePort # ClusterIp, # NodePort, #LoadBalancer
+  selector:
+    app: myapp1
+  ports: 
+    - name: http
+      port: 80 # Service Port
+      targetPort: 80 # Container Port
+      nodePort: 31280 # Node Port
