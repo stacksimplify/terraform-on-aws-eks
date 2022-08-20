@@ -2,6 +2,7 @@
 **/.terraform/*
 .DS_Store
 *.terraform*
+*terraform.tfstate*
 # .tfstate files
 *.tfstate
 *.tfstate.*
