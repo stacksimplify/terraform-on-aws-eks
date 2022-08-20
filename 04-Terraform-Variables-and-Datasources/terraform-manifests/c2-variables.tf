@@ -10,14 +10,14 @@ variable "aws_region" {
 variable "instance_type" {
   description = "EC2 Instnace Type"
   type = string
-  default = "t3.micro"
+  default = "t2.micro"
 }
 
 # AWS EC2 Instance Key Pair
 variable "instance_keypair" {
   description = "AWS EC2 Key Pair that need to be associated with EC2 Instance"
   type = string
-  default = "terraform-key"
+  default = "aws-ec2-myfernandez"
 }
 
 
