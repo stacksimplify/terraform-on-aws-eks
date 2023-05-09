@@ -27,7 +27,7 @@ resource "aws_iam_group_policy" "eksadmins_iam_group_assumerole_policy" {
 }
 
 
-# Resource: AWS IAM User - Basic User (No AWSConsole Access)
+# Resource: AWS IAM User 
 resource "aws_iam_user" "eksadmin_user" {
   name = "${local.name}-eksadmin3"
   path = "/"

@@ -1,0 +1,204 @@
+Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ kubectl get pods -n kube-system
+NAME                                  READY   STATUS    RESTARTS   AGE
+aws-node-xvnj4                        1/1     Running   0          42m
+coredns-66cb55d4f4-94f95              1/1     Running   0          46m
+coredns-66cb55d4f4-ndtdk              1/1     Running   0          46m
+ebs-csi-controller-56dfd4fccc-7fgbr   5/5     Running   0          15m
+ebs-csi-controller-56dfd4fccc-8f9fs   5/5     Running   0          15m
+ebs-csi-node-qp426                    3/3     Running   0          15m
+kube-proxy-6hk9j                      1/1     Running   0          42m
+Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ kubectl describe pod ebs-csi-controller-56dfd4fccc-7fgbr  -n kube-system
+Name:                 ebs-csi-controller-56dfd4fccc-7fgbr
+Namespace:            kube-system
+Priority:             2000000000
+Priority Class Name:  system-cluster-critical
+Node:                 ip-10-0-101-61.ec2.internal/10.0.101.61
+Start Time:           Wed, 05 Jan 2022 09:38:32 +0530
+Labels:               app=ebs-csi-controller
+                      app.kubernetes.io/component=csi-driver
+                      app.kubernetes.io/instance=hr-dev-aws-ebs-csi-driver
+                      app.kubernetes.io/managed-by=Helm
+                      app.kubernetes.io/name=aws-ebs-csi-driver
+                      app.kubernetes.io/version=1.5.0
+                      helm.sh/chart=aws-ebs-csi-driver-2.6.2
+                      pod-template-hash=56dfd4fccc
+Annotations:          kubernetes.io/psp: eks.privileged
+Status:               Running
+IP:                   10.0.101.194
+IPs:
+  IP:           10.0.101.194
+Controlled By:  ReplicaSet/ebs-csi-controller-56dfd4fccc
+Containers:
+  ebs-plugin:
+    Container ID:  docker://3da0c2e43d81696f9e83f6b81dc4a60469d6a56fb2c231932e05a642b7c57160
+    Image:         602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver:v1.5.0
+    Image ID:      docker-pullable://602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver@sha256:02194fcba95abf59f49468270e73573ec6ec30182693bb45e33c38fc7a399d05
+    Port:          9808/TCP
+    Host Port:     0/TCP
+    Args:
+      controller
+      --endpoint=$(CSI_ENDPOINT)
+      --logtostderr
+      --v=2
+    State:          Running
+      Started:      Wed, 05 Jan 2022 09:38:36 +0530
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:healthz/healthz delay=10s timeout=3s period=10s #success=1 #failure=5
+    Readiness:      http-get http://:healthz/healthz delay=10s timeout=3s period=10s #success=1 #failure=5
+    Environment:
+      CSI_ENDPOINT:                 unix:///var/lib/csi/sockets/pluginproxy/csi.sock
+      CSI_NODE_NAME:                 (v1:spec.nodeName)
+      AWS_ACCESS_KEY_ID:            <set to the key 'key_id' in secret 'aws-secret'>      Optional: true
+      AWS_SECRET_ACCESS_KEY:        <set to the key 'access_key' in secret 'aws-secret'>  Optional: true
+      AWS_DEFAULT_REGION:           us-east-1
+      AWS_REGION:                   us-east-1
+      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/eks.amazonaws.com/serviceaccount from aws-iam-token (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rpcvr (ro)
+  csi-provisioner:
+    Container ID:  docker://12f2b9676da3b1d1305e50fc319663ccc91faca00ec5eb84158b7b5708605132
+    Image:         k8s.gcr.io/sig-storage/csi-provisioner:v2.1.1
+    Image ID:      docker-pullable://k8s.gcr.io/sig-storage/csi-provisioner@sha256:695505fcfcc69f1cf35665dce487aad447adbb9af69b796d6437f869015d1157
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+      --feature-gates=Topology=true
+      --extra-create-metadata
+      --leader-election=true
+      --default-fstype=ext4
+    State:          Running
+      Started:      Wed, 05 Jan 2022 09:38:39 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
+      AWS_DEFAULT_REGION:           us-east-1
+      AWS_REGION:                   us-east-1
+      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/eks.amazonaws.com/serviceaccount from aws-iam-token (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rpcvr (ro)
+  csi-attacher:
+    Container ID:  docker://8a1703806336b65f985ce9288c160af682d81ec26cf1e16eba565873033ad027
+    Image:         k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
+    Image ID:      docker-pullable://k8s.gcr.io/sig-storage/csi-attacher@sha256:50c3cfd458fc8e0bf3c8c521eac39172009382fc66dc5044a330d137c6ed0b09
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+      --leader-election=true
+    State:          Running
+      Started:      Wed, 05 Jan 2022 09:38:42 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
+      AWS_DEFAULT_REGION:           us-east-1
+      AWS_REGION:                   us-east-1
+      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/eks.amazonaws.com/serviceaccount from aws-iam-token (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rpcvr (ro)
+  csi-resizer:
+    Container ID:  docker://407372de1e8c915fc0fde54c2aa0089c7182d2c0bbd375f07684910f484a85c9
+    Image:         k8s.gcr.io/sig-storage/csi-resizer:v1.1.0
+    Image ID:      docker-pullable://k8s.gcr.io/sig-storage/csi-resizer@sha256:7a5ba58a44e0d749e0767e4e37315bcf6a61f33ce3185c1991848af4db0fb70a
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+    State:          Running
+      Started:      Wed, 05 Jan 2022 09:38:45 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
+      AWS_DEFAULT_REGION:           us-east-1
+      AWS_REGION:                   us-east-1
+      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/eks.amazonaws.com/serviceaccount from aws-iam-token (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rpcvr (ro)
+  liveness-probe:
+    Container ID:  docker://4d43c74691eaa6b8fff11edd8ab18e427a7ba70162fe79eb7dd6ce1469ef2deb
+    Image:         k8s.gcr.io/sig-storage/livenessprobe:v2.4.0
+    Image ID:      docker-pullable://k8s.gcr.io/sig-storage/livenessprobe@sha256:529be2c9770add0cdd0c989115222ea9fc1be430c11095eb9f6dafcf98a36e2b
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --csi-address=/csi/csi.sock
+    State:          Running
+      Started:      Wed, 05 Jan 2022 09:38:45 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      AWS_DEFAULT_REGION:           us-east-1
+      AWS_REGION:                   us-east-1
+      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    Mounts:
+      /csi from socket-dir (rw)
+      /var/run/secrets/eks.amazonaws.com/serviceaccount from aws-iam-token (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rpcvr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  aws-iam-token:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  86400
+  socket-dir:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  kube-api-access-rpcvr:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              kubernetes.io/os=linux
+Tolerations:                 :NoExecute op=Exists for 300s
+                             CriticalAddonsOnly op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  16m   default-scheduler  Successfully assigned kube-system/ebs-csi-controller-56dfd4fccc-7fgbr to ip-10-0-101-61.ec2.internal
+  Normal  Pulling    15m   kubelet            Pulling image "602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver:v1.5.0"
+  Normal  Pulled     15m   kubelet            Successfully pulled image "602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver:v1.5.0" in 2.465333061s
+  Normal  Created    15m   kubelet            Created container ebs-plugin
+  Normal  Started    15m   kubelet            Started container ebs-plugin
+  Normal  Pulling    15m   kubelet            Pulling image "k8s.gcr.io/sig-storage/csi-provisioner:v2.1.1"
+  Normal  Pulled     15m   kubelet            Successfully pulled image "k8s.gcr.io/sig-storage/csi-provisioner:v2.1.1" in 2.48481585s
+  Normal  Created    15m   kubelet            Created container csi-provisioner
+  Normal  Started    15m   kubelet            Started container csi-provisioner
+  Normal  Pulling    15m   kubelet            Pulling image "k8s.gcr.io/sig-storage/csi-attacher:v3.1.0"
+  Normal  Pulling    15m   kubelet            Pulling image "k8s.gcr.io/sig-storage/csi-resizer:v1.1.0"
+  Normal  Created    15m   kubelet            Created container csi-attacher
+  Normal  Started    15m   kubelet            Started container csi-attacher
+  Normal  Pulled     15m   kubelet            Successfully pulled image "k8s.gcr.io/sig-storage/csi-attacher:v3.1.0" in 2.576567208s
+  Normal  Pulled     15m   kubelet            Successfully pulled image "k8s.gcr.io/sig-storage/csi-resizer:v1.1.0" in 2.546546151s
+  Normal  Created    15m   kubelet            Created container csi-resizer
+  Normal  Started    15m   kubelet            Started container csi-resizer
+  Normal  Pulled     15m   kubelet            Container image "k8s.gcr.io/sig-storage/livenessprobe:v2.4.0" already present on machine
+  Normal  Created    15m   kubelet            Created container liveness-probe
+  Normal  Started    15m   kubelet            Started container liveness-probe
+Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ 

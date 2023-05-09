@@ -4,11 +4,13 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "~> 4.13"
+      #version = "~> 4.13"
+      version = ">= 4.65"
      }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.11"
+      #version = "~> 2.11"
+      version = ">= 2.20"
     }     
   }
   # Adding Backend as S3 for Remote State Storage

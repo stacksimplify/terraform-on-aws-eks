@@ -198,7 +198,7 @@ resource "kubernetes_pod_v1" "efs_write_app_pod" {
 ## Step-08: c6-01-myapp1-deployment.tf
 - **Project Folder:** 03-efs-static-prov-terraform-manifests
 ```t
-# Resource: UserMgmt WebApp Kubernetes Deployment
+# Resource: Kubernetes Deployment
 resource "kubernetes_deployment_v1" "myapp1" {
   depends_on = [ aws_efs_mount_target.efs_mount_target]    
   metadata {
@@ -346,7 +346,6 @@ tail -f efs-static.txt
 kubectl get pods 
 
 # myapp1 POD1 - Connect to Kubernetes Pod
-kubectl exec --stdin --tty <POD-NAME> -- /bin/sh
 kubectl exec --stdin --tty myapp1-667d8656cc-2x824 -- /bin/sh
 cd /usr/share/nginx/html/efs
 ls

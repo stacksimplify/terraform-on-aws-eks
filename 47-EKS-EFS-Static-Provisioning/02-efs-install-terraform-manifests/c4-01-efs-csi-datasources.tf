@@ -9,5 +9,6 @@ data "http" "efs_csi_iam_policy" {
 }
 
 output "efs_csi_iam_policy" {
-  value = data.http.efs_csi_iam_policy.body
+  #value = data.http.efs_csi_iam_policy.body
+  value = data.http.efs_csi_iam_policy.response_body
 }

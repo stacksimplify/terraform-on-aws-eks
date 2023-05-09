@@ -1,5 +1,4 @@
-
-# Resource: AWS IAM Role
+# Resource: AWS IAM Role - EKS Admin
 resource "aws_iam_role" "eks_admin_role" {
   name = "${local.name}-eks-admin-role"
 
@@ -41,3 +40,5 @@ resource "aws_iam_role" "eks_admin_role" {
     tag-key = "${local.name}-eks-admin-role"
   }
 }
+
+

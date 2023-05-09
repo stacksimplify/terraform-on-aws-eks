@@ -17,7 +17,8 @@ data "http" "get_fluentbit_resources" {
 # Datasource: kubectl_file_documents 
 # This provider provides a data resource kubectl_file_documents to enable ease of splitting multi-document yaml content.
 data "kubectl_file_documents" "fluentbit_docs" {
-    content = data.http.get_fluentbit_resources.body
+    #content = data.http.get_fluentbit_resources.body
+    content = data.http.get_fluentbit_resources.response_body
 }
 
 # Resource: kubectl_manifest which will create k8s Resources from the URL specified in above datasource

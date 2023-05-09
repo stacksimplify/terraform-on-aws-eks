@@ -1,11 +1,11 @@
 #####################################################################
 # Block-1: Terraform Settings Block
 terraform {
-  required_version = "~> 0.14"
+  required_version = ">= 1.0.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.0"
+      version = ">= 4.65"
     }
   }
   # Adding Backend as S3 for Remote State Storage with State Locking

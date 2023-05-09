@@ -1,0 +1,17 @@
+VPC created on Tue Nov 23 10:08:37 IST 2021 and VPC ID: vpc-03096ec894a1ae08f
+VPC created on Thu Nov 25 11:11:15 IST 2021 and VPC ID: vpc-09e7161372a8333dd
+VPC created on Thu Nov 25 12:07:10 IST 2021 and VPC ID: vpc-047e41ced4f4f53b6
+VPC created on Thu Nov 25 15:26:32 IST 2021 and VPC ID: vpc-0268beee06316a180
+VPC created on Wed Dec 22 07:17:20 IST 2021 and VPC ID: vpc-02b1e5c8c33d70911
+VPC created on Wed Dec 22 13:49:57 IST 2021 and VPC ID: vpc-00a7881c4d6c4c731
+VPC created on Wed Dec 22 17:30:58 IST 2021 and VPC ID: vpc-06da5393d5481d8ba
+VPC created on Wed Dec 22 18:09:24 IST 2021 and VPC ID: vpc-0ce0a44123c32a304
+VPC created on Wed Dec 22 18:48:15 IST 2021 and VPC ID: vpc-0475c7bd01fff3f8e
+VPC created on Thu Dec 23 07:39:28 IST 2021 and VPC ID: vpc-0bfd05ddf2d2fb57f
+VPC created on Thu Dec 23 10:05:07 IST 2021 and VPC ID: vpc-025c4f234974bc13c
+VPC created on Thu Dec 30 13:50:17 IST 2021 and VPC ID: vpc-075bbf88311579923
+VPC created on Thu Dec 30 15:48:07 IST 2021 and VPC ID: vpc-0e524e587e67e9c6f
+VPC created on Fri Dec 31 08:38:31 IST 2021 and VPC ID: vpc-01da91a4c1a2507e4
+VPC created on Sat Jan 1 06:02:20 IST 2022 and VPC ID: vpc-063592bf66bbe415c
+VPC created on Sun Jan 2 09:02:31 IST 2022 and VPC ID: vpc-07b2456bdfba15335
+VPC created on Mon Jan 3 07:19:15 IST 2022 and VPC ID: vpc-0b1ccfc81d2c1115a

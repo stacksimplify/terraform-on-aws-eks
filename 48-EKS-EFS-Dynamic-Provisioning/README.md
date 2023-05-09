@@ -6,8 +6,8 @@ description: Learn to Automate AWS EKS Kubernetes EFS Dynamic Provisioning with 
 ## Step-01: Introduction
 - Implement and Test EFS Dynamic Provisioning Usecase
 
-## Step-02: Project-04: Review Terraform Manifests
-- **Project Folder:** 04-efs-dynamic-prov-terraform-manifests
+## Step-02: Project-03: Review Terraform Manifests
+- **Project Folder:** 03-efs-dynamic-prov-terraform-manifests
 1. c1-versions.tf
 2. c2-remote-state-datasource.tf
 3. c3-providers.tf

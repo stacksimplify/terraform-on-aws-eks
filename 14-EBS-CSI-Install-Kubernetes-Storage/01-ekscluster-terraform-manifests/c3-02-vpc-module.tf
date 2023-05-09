@@ -5,8 +5,9 @@ data "aws_availability_zones" "available" {
 # Create VPC Terraform Module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.11.0"
+  #version = "3.11.0"
   #version = "~> 3.11"
+  version = "4.0.1"
 
   # VPC Basic Details
   name = local.eks_cluster_name
@@ -49,4 +50,6 @@ module "vpc" {
   database_subnet_tags = {
     Type = "database-subnets"
   }
+  # Instances launched into the Public subnet should be assigned a public IP address.
+  map_public_ip_on_launch = true
 }

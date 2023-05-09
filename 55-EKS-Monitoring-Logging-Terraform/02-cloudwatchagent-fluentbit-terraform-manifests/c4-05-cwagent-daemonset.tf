@@ -16,5 +16,6 @@ resource "kubectl_manifest" "cwagent_daemonset" {
       kubernetes_config_map_v1.cwagentconfig_configmap,
       kubectl_manifest.cwagent_serviceaccount
       ]
-    yaml_body = data.http.get_cwagent_daemonset.body
+    #yaml_body = data.http.get_cwagent_daemonset.body
+    yaml_body = data.http.get_cwagent_daemonset.response_body
 }

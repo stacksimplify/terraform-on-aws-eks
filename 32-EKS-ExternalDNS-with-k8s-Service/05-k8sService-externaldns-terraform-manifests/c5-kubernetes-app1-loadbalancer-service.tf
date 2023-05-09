@@ -1,4 +1,4 @@
-# Kubernetes Service Manifest (Type: Node Port Service)
+# Kubernetes Service Manifest (Type: Load Balancer Service)
 resource "kubernetes_service_v1" "myapp1_np_service" {
   metadata {
     name = "app1-nginx-loadbalancer-service"
