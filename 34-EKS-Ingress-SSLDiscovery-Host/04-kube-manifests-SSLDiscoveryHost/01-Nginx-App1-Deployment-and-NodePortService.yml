@@ -5,6 +5,8 @@ metadata:
   labels:
     app: app1-nginx
 spec:
+  runAsUser:
+    rule: MustRunAsNonRoot
   replicas: 1
   selector:
     matchLabels:

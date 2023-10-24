@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
  name: app3-nginx-deployment
 spec:
+ runAsUser:
+   rule: MustRunAsNonRoot
  selector:
    matchLabels:
      app: app3-nginx-deployment

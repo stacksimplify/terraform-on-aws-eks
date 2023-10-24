@@ -6,6 +6,8 @@ metadata:
     app: app3-nginx 
 spec:
   replicas: 1
+  runAsUser:
+    rule: MustRunAsNonRoot
   selector:
     matchLabels:
       app: app3-nginx
