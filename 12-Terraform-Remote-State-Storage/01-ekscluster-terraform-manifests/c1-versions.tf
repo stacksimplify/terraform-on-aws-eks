@@ -4,8 +4,8 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      #version = "~> 3.63"
-      version = ">= 4.65"      
+      #version = ">= 4.65"      
+      version = ">= 5.31"      
      }
   }
   # Adding Backend as S3 for Remote State Storage
