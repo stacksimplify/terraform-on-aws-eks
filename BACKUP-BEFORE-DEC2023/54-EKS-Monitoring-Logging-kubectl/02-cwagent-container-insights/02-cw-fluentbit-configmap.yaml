@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-cluster-info
+  namespace: amazon-cloudwatch
+data:
+  cluster.name: hr-dev-eksdemo1
+  http.port: "2020"
+  http.server: "On"
+  logs.region: us-east-1
+  read.head: "Off"
+  read.tail: "On"
+
+## ConfigMap named fluent-bit-cluster-info with the cluster name and the Region to send logs to
+## Set Fluent Bit ConfigMap Values
+#ClusterName=cluster-name
+#RegionName=cluster-region
+#FluentBitHttpPort='2020'
+#FluentBitReadFromHead='Off'
+#[[ ${FluentBitReadFromHead} = 'On' ]] && FluentBitReadFromTail='Off'|| FluentBitReadFromTail='On'
+#[[ -z ${FluentBitHttpPort} ]] && FluentBitHttpServer='Off' || FluentBitHttpServer='On'
+
+# Additional Note-1: In this command, the FluentBitHttpServer for monitoring plugin metrics is on by default. To turn it off, change the third line in the command to FluentBitHttpPort='' (empty string) in the command.
+# Additional Note-2:Also by default, Fluent Bit reads log files from the tail, and will capture only new logs after it is deployed. If you want the opposite, set FluentBitReadFromHead='On' and it will collect all logs in the file system.

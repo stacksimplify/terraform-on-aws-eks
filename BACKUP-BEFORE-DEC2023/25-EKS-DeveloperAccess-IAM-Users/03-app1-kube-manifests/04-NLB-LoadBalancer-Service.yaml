@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: myapp1-lb-service-nlb
+  namespace: dev  
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb    # To create Network Load Balancer  
+spec:
+  type: LoadBalancer # ClusterIp, # NodePort
+  selector:
+    app: myapp1
+  ports: 
+    - name: http
+      port: 80 # Service Port
+      targetPort: 80 # Container Port
+
