@@ -12,8 +12,8 @@ resource "helm_release" "external_dns" {
     name = "image.repository"
     #value = "k8s.gcr.io/external-dns/external-dns" 
     value = "registry.k8s.io/external-dns/external-dns"
-  }  
-  
+  }       
+
   set {
     name  = "serviceAccount.create"
     value = "true"
