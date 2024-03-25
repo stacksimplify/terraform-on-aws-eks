@@ -1,0 +1,165 @@
+import "strings"
+
+providers = {
+	"aws": {
+		"alias": "",
+		"config": {
+			"region": {
+				"references": [
+					"var.aws_region",
+				],
+			},
+		},
+		"module_address":      "",
+		"name":                "aws",
+		"provider_config_key": "aws",
+		"version_constraint":  "~> 3.0",
+	},
+}
+
+resources = {
+	"aws_s3_bucket.s3_bucket": {
+		"address": "aws_s3_bucket.s3_bucket",
+		"config": {
+			"acl": {
+				"constant_value": "public-read",
+			},
+			"bucket": {
+				"references": [
+					"var.bucket_name",
+				],
+			},
+			"force_destroy": {
+				"constant_value": true,
+			},
+			"policy": {
+				"references": [
+					"var.bucket_name",
+				],
+			},
+			"tags": {
+				"references": [
+					"var.tags",
+				],
+			},
+			"website": [
+				{
+					"error_document": {
+						"constant_value": "error.html",
+					},
+					"index_document": {
+						"constant_value": "index.html",
+					},
+				},
+			],
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "s3_bucket",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_s3_bucket",
+	},
+	"aws_s3_bucket_object.bucket": {
+		"address": "aws_s3_bucket_object.bucket",
+		"config": {
+			"acl": {
+				"constant_value": "public-read",
+			},
+			"bucket": {
+				"references": [
+					"aws_s3_bucket.s3_bucket",
+				],
+			},
+			"content": {
+				"references": [
+					"path.module",
+				],
+			},
+			"content_type": {
+				"constant_value": "text/html",
+			},
+			"key": {
+				"constant_value": "index.html",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "bucket",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_s3_bucket_object",
+	},
+}
+
+provisioners = {}
+
+variables = {
+	"aws_region": {
+		"default":        "us-east-1",
+		"description":    "Region in which AWS Resources to be created",
+		"module_address": "",
+		"name":           "aws_region",
+	},
+	"bucket_name": {
+		"default":        "mybucket-1061",
+		"description":    "Name of the S3 bucket. Must be Unique across AWS",
+		"module_address": "",
+		"name":           "bucket_name",
+	},
+	"tags": {
+		"default": {
+			"Environment": "dev",
+			"Terraform":   "true",
+			"newtag1":     "tag1",
+			"newtag2":     "tag2",
+		},
+		"description":    "Tages to set on the bucket",
+		"module_address": "",
+		"name":           "tags",
+	},
+}
+
+outputs = {
+	"bucket_website_endpoint_url": {
+		"depends_on":     [],
+		"description":    "",
+		"module_address": "",
+		"name":           "bucket_website_endpoint_url",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"aws_s3_bucket.s3_bucket",
+			],
+		},
+	},
+	"endpoint": {
+		"depends_on":     [],
+		"description":    "Endpoint Information of the bucket",
+		"module_address": "",
+		"name":           "endpoint",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"aws_s3_bucket.s3_bucket",
+			],
+		},
+	},
+}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

@@ -1,0 +1,25 @@
+{
+     "agent": {
+         "run_as_user": "root"
+     },
+     "logs": {
+         "logs_collected": {
+             "files": {
+                 "collect_list": [
+                     {
+                         "file_path": "/mnt/log/nginx/content_system-api-error.log",
+                         "log_group_name": "/aws/api-error",
+                         "log_stream_name": "api-p01-{instance_id}-timeout-error"
+                     },
+                    {
+                         "file_path": "/mnt/log/nginx/content_system-json-access.log",
+                         "log_group_name": "/aws/api-error",
+                         "log_stream_name": "api-p01-{instance_id}-api-changes"
+                     }
+                 ]
+             }
+         }
+     }
+ }
+
+ 

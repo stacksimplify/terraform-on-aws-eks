@@ -1,0 +1,47 @@
+2021/03/16 13:42:18 [INFO] Terraform version: 0.14.8  
+2021/03/16 13:42:18 [INFO] Go runtime version: go1.15.6
+2021/03/16 13:42:18 [INFO] CLI args: []string{"/usr/local/bin/terraform", "init"}
+2021/03/16 13:42:18 [DEBUG] Attempting to open CLI config file: /Users/kdaida/.terraformrc
+2021/03/16 13:42:18 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2021/03/16 13:42:18 Loading CLI configuration from /Users/kdaida/.terraform.d/credentials.tfrc.json
+2021/03/16 13:42:18 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2021/03/16 13:42:18 [DEBUG] ignoring non-existing provider search directory /Users/kdaida/.terraform.d/plugins
+2021/03/16 13:42:18 [DEBUG] ignoring non-existing provider search directory /Users/kdaida/Library/Application Support/io.terraform/plugins
+2021/03/16 13:42:18 [DEBUG] ignoring non-existing provider search directory /Library/Application Support/io.terraform/plugins
+2021/03/16 13:42:18 [INFO] CLI command args: []string{"init"}
+2021/03/16 13:42:18 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2021/03/16 13:42:18 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2021/03/16 13:42:18 [DEBUG] New state was assigned lineage "c795fb8f-2eb6-e842-427d-de1dc6657f4d"
+2021/03/16 13:42:18 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2021/03/16 13:42:18 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2021/03/16 13:42:18 [DEBUG] checking for provisioner in "."
+2021/03/16 13:42:18 [DEBUG] checking for provisioner in "/usr/local/bin"
+2021/03/16 13:42:18 [INFO] Failed to read plugin lock file .terraform/plugins/darwin_amd64/lock.json: open .terraform/plugins/darwin_amd64/lock.json: no such file or directory
+2021/03/16 13:42:18 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2021/03/16 13:42:18 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2021/03/16 13:42:18 [TRACE] statemgr.Filesystem: reading initial snapshot from terraform.tfstate
+2021/03/16 13:42:18 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2021/03/16 13:42:18 [TRACE] statemgr.Filesystem: read nil snapshot
+2021/03/16 13:42:18 [DEBUG] Service discovery for registry.terraform.io at https://registry.terraform.io/.well-known/terraform.json
+2021/03/16 13:42:18 [TRACE] HTTP client GET request to https://registry.terraform.io/.well-known/terraform.json
+2021/03/16 13:42:18 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2021/03/16 13:42:18 [TRACE] HTTP client GET request to https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2021/03/16 13:42:18 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/16 13:42:18 [TRACE] getproviders.SearchLocalDirectory: failed to resolve symlinks for .terraform/providers: lstat .terraform: no such file or directory
+2021/03/16 13:42:18 [TRACE] providercache.fillMetaCache: error while scanning directory .terraform/providers: cannot search .terraform/providers: lstat .terraform/providers: no such file or directory
+2021/03/16 13:42:18 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/3.32.0/download/darwin/amd64
+2021/03/16 13:42:18 [TRACE] HTTP client GET request to https://registry.terraform.io/v1/providers/hashicorp/aws/3.32.0/download/darwin/amd64
+2021/03/16 13:42:19 [DEBUG] GET https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_SHA256SUMS
+2021/03/16 13:42:19 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_SHA256SUMS
+2021/03/16 13:42:19 [DEBUG] GET https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_SHA256SUMS.sig
+2021/03/16 13:42:19 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_SHA256SUMS.sig
+2021/03/16 13:42:19 [TRACE] providercache.Dir.InstallPackage: installing registry.terraform.io/hashicorp/aws v3.32.0 from https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_darwin_amd64.zip
+2021/03/16 13:42:19 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-aws/3.32.0/terraform-provider-aws_3.32.0_darwin_amd64.zip
+2021/03/16 13:42:23 [DEBUG] Provider signed by 51852D87348FFC4C HashiCorp Security <security@hashicorp.com>
+2021/03/16 13:42:24 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/16 13:42:24 [TRACE] getproviders.SearchLocalDirectory: .terraform/providers is a symlink to .terraform/providers
+2021/03/16 13:42:24 [TRACE] getproviders.SearchLocalDirectory: found registry.terraform.io/hashicorp/aws v3.32.0 for darwin_amd64 at .terraform/providers/registry.terraform.io/hashicorp/aws/3.32.0/darwin_amd64
+2021/03/16 13:42:24 [TRACE] providercache.fillMetaCache: including .terraform/providers/registry.terraform.io/hashicorp/aws/3.32.0/darwin_amd64 as a candidate package for registry.terraform.io/hashicorp/aws 3.32.0

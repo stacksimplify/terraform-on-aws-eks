@@ -1,0 +1,31 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.my-ec2-vm (expand)" [label = "aws_instance.my-ec2-vm", shape = "box"]
+		"[root] aws_security_group.vpc-ssh (expand)" [label = "aws_security_group.vpc-ssh", shape = "box"]
+		"[root] aws_security_group.vpc-web (expand)" [label = "aws_security_group.vpc-web", shape = "box"]
+		"[root] data.aws_ami.amzlinux (expand)" [label = "data.aws_ami.amzlinux", shape = "box"]
+		"[root] output.ec2_instance_publicip" [label = "output.ec2_instance_publicip", shape = "note"]
+		"[root] output.ec2_publicdns" [label = "output.ec2_publicdns", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.aws_region" [label = "var.aws_region", shape = "note"]
+		"[root] var.instance_type" [label = "var.instance_type", shape = "note"]
+		"[root] aws_instance.my-ec2-vm (expand)" -> "[root] aws_security_group.vpc-ssh (expand)"
+		"[root] aws_instance.my-ec2-vm (expand)" -> "[root] aws_security_group.vpc-web (expand)"
+		"[root] aws_instance.my-ec2-vm (expand)" -> "[root] data.aws_ami.amzlinux (expand)"
+		"[root] aws_instance.my-ec2-vm (expand)" -> "[root] var.instance_type"
+		"[root] aws_security_group.vpc-ssh (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_security_group.vpc-web (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_ami.amzlinux (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.ec2_instance_publicip"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.ec2_publicdns"
+		"[root] output.ec2_instance_publicip" -> "[root] aws_instance.my-ec2-vm (expand)"
+		"[root] output.ec2_publicdns" -> "[root] aws_instance.my-ec2-vm (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.my-ec2-vm (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.aws_region"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+

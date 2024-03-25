@@ -1,0 +1,156 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"bucket_website_endpoint_url": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"aws_s3_bucket.s3_bucket",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"endpoint": {
+				"depends_on":  [],
+				"description": "Endpoint Information of the bucket",
+				"references": [
+					"aws_s3_bucket.s3_bucket",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {
+			"aws": {
+				"alias": {
+					"": {
+						"config": {},
+						"references": {
+							"region": [
+								"var.aws_region",
+							],
+						},
+						"version": "~> 3.0",
+					},
+				},
+				"config": {},
+				"references": {
+					"region": [
+						"var.aws_region",
+					],
+				},
+				"version": "~> 3.0",
+			},
+		},
+		"resources": {
+			"aws_s3_bucket": {
+				"s3_bucket": {
+					"config": {
+						"acl":           "public-read",
+						"force_destroy": true,
+						"website": [
+							{
+								"error_document": "error.html",
+								"index_document": "index.html",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"acl": [],
+						"bucket": [
+							"var.bucket_name",
+						],
+						"force_destroy": [],
+						"policy": [
+							"var.bucket_name",
+						],
+						"tags": [
+							"var.tags",
+						],
+						"website": [
+							{
+								"error_document": [],
+								"index_document": [],
+							},
+						],
+					},
+				},
+			},
+			"aws_s3_bucket_object": {
+				"bucket": {
+					"config": {
+						"acl":          "public-read",
+						"content_type": "text/html",
+						"key":          "index.html",
+					},
+					"provisioners": null,
+					"references": {
+						"acl": [],
+						"bucket": [
+							"aws_s3_bucket.s3_bucket",
+						],
+						"content": [
+							"path.module",
+						],
+						"content_type": [],
+						"key":          [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"aws_region": {
+				"default":     "us-east-1",
+				"description": "Region in which AWS Resources to be created",
+			},
+			"bucket_name": {
+				"default":     "mybucket-1061",
+				"description": "Name of the S3 bucket. Must be Unique across AWS",
+			},
+			"tags": {
+				"default": {
+					"Environment": "dev",
+					"Terraform":   "true",
+					"newtag1":     "tag1",
+					"newtag2":     "tag2",
+				},
+				"description": "Tages to set on the bucket",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs

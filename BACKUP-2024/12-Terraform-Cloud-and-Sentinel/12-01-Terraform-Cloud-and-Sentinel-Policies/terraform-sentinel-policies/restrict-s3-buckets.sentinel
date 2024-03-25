@@ -1,0 +1,33 @@
+import "tfplan/v2" as tfplan
+
+s3_buckets = filter tfplan.resource_changes as _, rc {
+  rc.type is "aws_s3_bucket" and
+  (rc.change.actions contains "create" or rc.change.actions is ["update"])
+}
+
+required_tags = [
+    "Terraform",
+    "Environment",
+]
+
+allowed_acls = [
+    "public-read",
+]
+
+bucket_tags = rule {
+    all s3_buckets as _, instances {
+        all required_tags as rt {
+        instances.change.after.tags contains rt
+        }
+    }
+}
+
+acl_allowed = rule {
+    all s3_buckets as _, buckets {
+    buckets.change.after.acl in allowed_acls
+    }
+}
+
+main = rule {
+    (bucket_tags and acl_allowed) else false
+}
