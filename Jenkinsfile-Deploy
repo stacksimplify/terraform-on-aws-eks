@@ -1,0 +1,74 @@
+pipeline {
+    options
+    {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+    agent any
+    environment 
+    {
+        UPDATE_ACTION ="${Update_Action}"
+        SELECT_ENV = "${Select_Env}"
+        AWS_SDK_LOAD_CONFIG=1
+        registryCredential = 'docker_hub_id'    
+    }
+    stages {
+        stage("Execution") {
+            steps {
+                script {
+                     if (UPDATE_ACTION == "rebuild_container") {
+                        if (SELECT_ENV == "dev") {
+                        sh"""
+                        pwd
+                        cd /var/lib/jenkins
+                        sudo ./script.sh
+                        pwd
+                        cd /var/lib/jenkins/workspace/inboxable-vega-docker
+                        pwd
+                        sudo aws ssm get-parameters --region us-east-1 --names "/vega/dev/env" --with-decryption --output text --query "Parameters[*].{Value:Value}" > .env
+                        sudo aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 812619949880.dkr.ecr.us-east-1.amazonaws.com
+                        sudo docker build --platform linux/amd64 -t v7-0-0-dev-inboxable-vega .                
+                        sudo docker tag v7-0-0-dev-inboxable-vega:latest 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-dev-inboxable-vega:latest
+                        sudo docker push 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-dev-inboxable-vega:latest                        
+                        """
+                    }
+                    if (SELECT_ENV == "stag") {
+                        sh"""
+                        pwd
+                        cd /var/lib/jenkins
+                        sudo ./script.sh
+                        pwd
+                        cd /var/lib/jenkins/workspace/inboxable-vega-docker
+                        pwd
+                        sudo aws ssm get-parameters --region us-east-1 --names "/vega/stag/env" --with-decryption --output text --query "Parameters[*].{Value:Value}" > .env
+                        sudo aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 812619949880.dkr.ecr.us-east-1.amazonaws.com
+                        sudo docker build --platform linux/amd64 -t v7-0-0-stag-inboxable-vega .                
+                        sudo docker tag v7-0-0-stag-inboxable-vega:latest 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-stag-inboxable-vega:latest
+                        sudo docker push 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-stag-inboxable-vega:latest                        
+                        """
+                    }
+                   if (SELECT_ENV == "prod") {
+                        sh"""
+                        pwd
+                        cd /var/lib/jenkins
+                        sudo ./script.sh
+                        pwd
+                        cd /var/lib/jenkins/workspace/inboxable-vega-docker
+                        pwd
+                        sudo aws ssm get-parameters --region us-east-1 --names "/vega/prod/env" --with-decryption --output text --query "Parameters[*].{Value:Value}" > .env
+                        sudo aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 812619949880.dkr.ecr.us-east-1.amazonaws.com
+                        sudo docker build --platform linux/amd64 -t v7-0-0-prod-inboxable-vega .                
+                        sudo docker tag v7-0-0-prod-inboxable-vega:latest 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-prod-inboxable-vega:latest
+                        sudo docker push 812619949880.dkr.ecr.us-east-1.amazonaws.com/v7-0-0-prod-inboxable-vega:latest                        
+                        """
+                    }
+                }
+                    else {
+                        sh"""
+                        echo "Nothing to do"
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
