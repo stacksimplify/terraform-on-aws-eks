@@ -1,0 +1,27 @@
+wget https://amazoncloudwatch-agent.s3.amazonaws.com/ubuntu/arm64/latest/amazon-cloudwatch-agent.deb
+sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+cd /opt/aws/amazon-cloudwatch-agent/bin/
+sudo vi config.json
+
+{
+     "agent": {
+         "run_as_user": "root"
+     },
+     "logs": {
+         "logs_collected": {
+             "files": {
+                 "collect_list": [
+                     {
+                         "file_path": "/mnt/log/nginx/content_system-api-error.log",
+                         "log_group_name": "/aws/api-error",
+                         "log_stream_name": "{instance_id}"
+                     }
+                 ]
+             }
+         }
+     }
+ }
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+cat /mnt/log/nginx/content_system-api-error.log
+curl http://169.254.169.254/latest/meta-data/instance-id

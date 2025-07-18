@@ -1,0 +1,407 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"aws_s3_bucket": {
+				"s3_bucket": {
+					0: {
+						"applied": {
+							"acl":                                  "public-read",
+							"bucket":                               "mybucket-1061",
+							"bucket_prefix":                        null,
+							"cors_rule":                            [],
+							"force_destroy":                        true,
+							"grant":                                [],
+							"lifecycle_rule":                       [],
+							"logging":                              [],
+							"object_lock_configuration":            [],
+							"policy":                               "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n      {\n          \"Sid\": \"PublicReadGetObject\",\n          \"Effect\": \"Allow\",\n          \"Principal\": \"*\",\n          \"Action\": [\n              \"s3:GetObject\"\n          ],\n          \"Resource\": [\n              \"arn:aws:s3:::mybucket-1061/*\"\n          ]\n      }\n  ]\n}  \n",
+							"replication_configuration":            [],
+							"server_side_encryption_configuration": [],
+							"tags": {
+								"Environment": "dev",
+								"Terraform":   "true",
+								"newtag1":     "tag1",
+								"newtag2":     "tag2",
+							},
+							"website": [
+								{
+									"error_document":           "error.html",
+									"index_document":           "index.html",
+									"redirect_all_requests_to": null,
+									"routing_rules":            null,
+								},
+							],
+						},
+						"destroy": false,
+						"diff": {
+							"acceleration_status": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"acl": {
+								"computed": false,
+								"new":      "public-read",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"bucket": {
+								"computed": false,
+								"new":      "mybucket-1061",
+								"old":      "",
+							},
+							"bucket_domain_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"bucket_prefix": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"bucket_regional_domain_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cors_rule.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"grant.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"hosted_zone_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"lifecycle_rule.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"logging.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"object_lock_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"policy": {
+								"computed": false,
+								"new":      "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n      {\n          \"Sid\": \"PublicReadGetObject\",\n          \"Effect\": \"Allow\",\n          \"Principal\": \"*\",\n          \"Action\": [\n              \"s3:GetObject\"\n          ],\n          \"Resource\": [\n              \"arn:aws:s3:::mybucket-1061/*\"\n          ]\n      }\n  ]\n}  \n",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"replication_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"request_payer": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"server_side_encryption_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "4",
+								"old":      "",
+							},
+							"tags.Environment": {
+								"computed": false,
+								"new":      "dev",
+								"old":      "",
+							},
+							"tags.Terraform": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"tags.newtag1": {
+								"computed": false,
+								"new":      "tag1",
+								"old":      "",
+							},
+							"tags.newtag2": {
+								"computed": false,
+								"new":      "tag2",
+								"old":      "",
+							},
+							"versioning.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"website.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"website.0.%": {
+								"computed": false,
+								"new":      "4",
+								"old":      "",
+							},
+							"website.0.error_document": {
+								"computed": false,
+								"new":      "error.html",
+								"old":      "",
+							},
+							"website.0.index_document": {
+								"computed": false,
+								"new":      "index.html",
+								"old":      "",
+							},
+							"website.0.redirect_all_requests_to": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"website.0.routing_rules": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"website_domain": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"website_endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"aws_s3_bucket_object": {
+				"bucket": {
+					0: {
+						"applied": {
+							"acl":                           "public-read",
+							"cache_control":                 null,
+							"content":                       "<html xmlns=\"http://www.w3.org/1999/xhtml\" >\n<head>\n    <title>Welcome to Stack Simplify</title>\n</head>\n<body style=\"background-color:rgb(127, 178, 210);\">\n   <h1>Welcome to Stack Simplify -  Terraform & Sentinel Demo</h1>\n   <h2>Sentinel Demo</h2>\n   <p>Terraform Sentinel - Demo - V1</p>\n</body>\n</html>",
+							"content_base64":                null,
+							"content_disposition":           null,
+							"content_encoding":              null,
+							"content_language":              null,
+							"content_type":                  "text/html",
+							"force_destroy":                 false,
+							"key":                           "index.html",
+							"metadata":                      null,
+							"object_lock_legal_hold_status": null,
+							"object_lock_mode":              null,
+							"object_lock_retain_until_date": null,
+							"source":                        null,
+							"tags":                          null,
+							"website_redirect":              null,
+						},
+						"destroy": false,
+						"diff": {
+							"acl": {
+								"computed": false,
+								"new":      "public-read",
+								"old":      "",
+							},
+							"bucket": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cache_control": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"content": {
+								"computed": false,
+								"new":      "<html xmlns=\"http://www.w3.org/1999/xhtml\" >\n<head>\n    <title>Welcome to Stack Simplify</title>\n</head>\n<body style=\"background-color:rgb(127, 178, 210);\">\n   <h1>Welcome to Stack Simplify -  Terraform & Sentinel Demo</h1>\n   <h2>Sentinel Demo</h2>\n   <p>Terraform Sentinel - Demo - V1</p>\n</body>\n</html>",
+								"old":      "",
+							},
+							"content_base64": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"content_disposition": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"content_encoding": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"content_language": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"content_type": {
+								"computed": false,
+								"new":      "text/html",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key": {
+								"computed": false,
+								"new":      "index.html",
+								"old":      "",
+							},
+							"kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"metadata": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"object_lock_legal_hold_status": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"object_lock_mode": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"object_lock_retain_until_date": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"server_side_encryption": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_class": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"version_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"website_redirect": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.14.8"
+
+variables = {
+	"aws_region":  "us-east-1",
+	"bucket_name": "mybucket-1061",
+	"tags": {
+		"Environment": "dev",
+		"Terraform":   "true",
+		"newtag1":     "tag1",
+		"newtag2":     "tag2",
+	},
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

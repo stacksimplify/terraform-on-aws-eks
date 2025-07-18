@@ -1,0 +1,1072 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"aws_instance": {
+				"my-ec2-vm": {
+					0: {
+						"applied": {
+							"ami": "ami-038f1ca1bd58a5790",
+							"credit_specification":                 [],
+							"disable_api_termination":              null,
+							"ebs_optimized":                        null,
+							"get_password_data":                    false,
+							"hibernation":                          null,
+							"iam_instance_profile":                 null,
+							"instance_initiated_shutdown_behavior": null,
+							"instance_type":                        "t3.2xlarge",
+							"key_name":                             "terraform-key",
+							"monitoring":                           null,
+							"source_dest_check":                    true,
+							"tags": {
+								"Name": "Terraform-Cloud-0",
+							},
+							"timeouts":         null,
+							"user_data":        "b8f24b772ee8efd4ae4229b9f6b2347089d24685",
+							"user_data_base64": null,
+							"volume_tags":      null,
+						},
+						"destroy": false,
+						"diff": {
+							"ami": {
+								"computed": false,
+								"new":      "ami-038f1ca1bd58a5790",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"associate_public_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"availability_zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cpu_core_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cpu_threads_per_core": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"credit_specification.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"disable_api_termination": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ebs_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ebs_optimized": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enclave_options.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ephemeral_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"get_password_data": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"hibernation": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"host_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_instance_profile": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_initiated_shutdown_behavior": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_state": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_type": {
+								"computed": false,
+								"new":      "t3.2xlarge",
+								"old":      "",
+							},
+							"ipv6_address_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ipv6_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key_name": {
+								"computed": false,
+								"new":      "terraform-key",
+								"old":      "",
+							},
+							"metadata_options.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"outpost_arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"password_data": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"placement_group": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"primary_network_interface_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_dns": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_dns": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"root_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"secondary_private_ips.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"security_groups.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_dest_check": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"subnet_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags.Name": {
+								"computed": false,
+								"new":      "Terraform-Cloud-0",
+								"old":      "",
+							},
+							"tenancy": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"user_data": {
+								"computed": false,
+								"new":      "b8f24b772ee8efd4ae4229b9f6b2347089d24685",
+								"old":      "",
+							},
+							"user_data_base64": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"volume_tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_security_group_ids.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+					1: {
+						"applied": {
+							"ami": "ami-038f1ca1bd58a5790",
+							"credit_specification":                 [],
+							"disable_api_termination":              null,
+							"ebs_optimized":                        null,
+							"get_password_data":                    false,
+							"hibernation":                          null,
+							"iam_instance_profile":                 null,
+							"instance_initiated_shutdown_behavior": null,
+							"instance_type":                        "t3.2xlarge",
+							"key_name":                             "terraform-key",
+							"monitoring":                           null,
+							"source_dest_check":                    true,
+							"tags": {
+								"Name": "Terraform-Cloud-1",
+							},
+							"timeouts":         null,
+							"user_data":        "b8f24b772ee8efd4ae4229b9f6b2347089d24685",
+							"user_data_base64": null,
+							"volume_tags":      null,
+						},
+						"destroy": false,
+						"diff": {
+							"ami": {
+								"computed": false,
+								"new":      "ami-038f1ca1bd58a5790",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"associate_public_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"availability_zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cpu_core_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cpu_threads_per_core": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"credit_specification.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"disable_api_termination": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ebs_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ebs_optimized": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enclave_options.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ephemeral_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"get_password_data": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"hibernation": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"host_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_instance_profile": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_initiated_shutdown_behavior": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_state": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_type": {
+								"computed": false,
+								"new":      "t3.2xlarge",
+								"old":      "",
+							},
+							"ipv6_address_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ipv6_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key_name": {
+								"computed": false,
+								"new":      "terraform-key",
+								"old":      "",
+							},
+							"metadata_options.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"outpost_arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"password_data": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"placement_group": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"primary_network_interface_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_dns": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_dns": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"root_block_device.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"secondary_private_ips.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"security_groups.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_dest_check": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"subnet_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags.Name": {
+								"computed": false,
+								"new":      "Terraform-Cloud-1",
+								"old":      "",
+							},
+							"tenancy": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"user_data": {
+								"computed": false,
+								"new":      "b8f24b772ee8efd4ae4229b9f6b2347089d24685",
+								"old":      "",
+							},
+							"user_data_base64": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"volume_tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_security_group_ids.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"aws_security_group": {
+				"vpc-ssh": {
+					0: {
+						"applied": {
+							"description": "Dev VPC SSH",
+							"egress": [
+								{
+									"cidr_blocks": [
+										"0.0.0.0/0",
+									],
+									"description":      "Allow all ip and ports outboun",
+									"from_port":        0,
+									"ipv6_cidr_blocks": [],
+									"prefix_list_ids":  [],
+									"protocol":         "-1",
+									"security_groups":  [],
+									"self":             false,
+									"to_port":          0,
+								},
+							],
+							"ingress": [
+								{
+									"cidr_blocks": [
+										"0.0.0.0/0",
+									],
+									"description":      "Allow Port 22",
+									"from_port":        22,
+									"ipv6_cidr_blocks": [],
+									"prefix_list_ids":  [],
+									"protocol":         "tcp",
+									"security_groups":  [],
+									"self":             false,
+									"to_port":          22,
+								},
+							],
+							"name": "vpc-ssh-default",
+							"revoke_rules_on_delete": false,
+							"tags":     null,
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "Dev VPC SSH",
+								"old":      "",
+							},
+							"egress.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"egress.0.%": {
+								"computed": false,
+								"new":      "9",
+								"old":      "",
+							},
+							"egress.0.cidr_blocks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"egress.0.cidr_blocks.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"egress.0.description": {
+								"computed": false,
+								"new":      "Allow all ip and ports outboun",
+								"old":      "",
+							},
+							"egress.0.from_port": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.ipv6_cidr_blocks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.prefix_list_ids.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.protocol": {
+								"computed": false,
+								"new":      "-1",
+								"old":      "",
+							},
+							"egress.0.security_groups.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.self": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"egress.0.to_port": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ingress.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ingress.0.%": {
+								"computed": false,
+								"new":      "9",
+								"old":      "",
+							},
+							"ingress.0.cidr_blocks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ingress.0.cidr_blocks.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"ingress.0.description": {
+								"computed": false,
+								"new":      "Allow Port 22",
+								"old":      "",
+							},
+							"ingress.0.from_port": {
+								"computed": false,
+								"new":      "22",
+								"old":      "",
+							},
+							"ingress.0.ipv6_cidr_blocks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.prefix_list_ids.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"ingress.0.security_groups.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.self": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"ingress.0.to_port": {
+								"computed": false,
+								"new":      "22",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "vpc-ssh-default",
+								"old":      "",
+							},
+							"name_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"owner_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"revoke_rules_on_delete": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"vpc-web": {
+					0: {
+						"applied": {
+							"description": "Dev VPC web",
+							"egress": [
+								{
+									"cidr_blocks": [
+										"0.0.0.0/0",
+									],
+									"description":      "Allow all ip and ports outbound",
+									"from_port":        0,
+									"ipv6_cidr_blocks": [],
+									"prefix_list_ids":  [],
+									"protocol":         "-1",
+									"security_groups":  [],
+									"self":             false,
+									"to_port":          0,
+								},
+							],
+							"ingress": [
+								{
+									"cidr_blocks": [
+										"0.0.0.0/0",
+									],
+									"description":      "Allow Port 443",
+									"from_port":        443,
+									"ipv6_cidr_blocks": [],
+									"prefix_list_ids":  [],
+									"protocol":         "tcp",
+									"security_groups":  [],
+									"self":             false,
+									"to_port":          443,
+								},
+								{
+									"cidr_blocks": [
+										"0.0.0.0/0",
+									],
+									"description":      "Allow Port 80",
+									"from_port":        80,
+									"ipv6_cidr_blocks": [],
+									"prefix_list_ids":  [],
+									"protocol":         "tcp",
+									"security_groups":  [],
+									"self":             false,
+									"to_port":          80,
+								},
+							],
+							"name": "vpc-web-default",
+							"revoke_rules_on_delete": false,
+							"tags":     null,
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "Dev VPC web",
+								"old":      "",
+							},
+							"egress.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"egress.0.%": {
+								"computed": false,
+								"new":      "9",
+								"old":      "",
+							},
+							"egress.0.cidr_blocks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"egress.0.cidr_blocks.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"egress.0.description": {
+								"computed": false,
+								"new":      "Allow all ip and ports outbound",
+								"old":      "",
+							},
+							"egress.0.from_port": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.ipv6_cidr_blocks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.prefix_list_ids.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.protocol": {
+								"computed": false,
+								"new":      "-1",
+								"old":      "",
+							},
+							"egress.0.security_groups.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"egress.0.self": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"egress.0.to_port": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ingress.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"ingress.0.%": {
+								"computed": false,
+								"new":      "9",
+								"old":      "",
+							},
+							"ingress.0.cidr_blocks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ingress.0.cidr_blocks.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"ingress.0.description": {
+								"computed": false,
+								"new":      "Allow Port 443",
+								"old":      "",
+							},
+							"ingress.0.from_port": {
+								"computed": false,
+								"new":      "443",
+								"old":      "",
+							},
+							"ingress.0.ipv6_cidr_blocks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.prefix_list_ids.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"ingress.0.security_groups.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.0.self": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"ingress.0.to_port": {
+								"computed": false,
+								"new":      "443",
+								"old":      "",
+							},
+							"ingress.1.%": {
+								"computed": false,
+								"new":      "9",
+								"old":      "",
+							},
+							"ingress.1.cidr_blocks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"ingress.1.cidr_blocks.0": {
+								"computed": false,
+								"new":      "0.0.0.0/0",
+								"old":      "",
+							},
+							"ingress.1.description": {
+								"computed": false,
+								"new":      "Allow Port 80",
+								"old":      "",
+							},
+							"ingress.1.from_port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"ingress.1.ipv6_cidr_blocks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.1.prefix_list_ids.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.1.protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"ingress.1.security_groups.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"ingress.1.self": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"ingress.1.to_port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "vpc-web-default",
+								"old":      "",
+							},
+							"name_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"owner_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"revoke_rules_on_delete": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.14.7"
+
+variables = {
+	"aws_region":    "us-east-1",
+	"instance_type": "t3.2xlarge",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

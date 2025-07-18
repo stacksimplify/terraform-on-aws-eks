@@ -1,0 +1,227 @@
+import "strings"
+
+providers = {
+	"aws": {
+		"alias": "",
+		"config": {
+			"region": {
+				"references": [
+					"var.aws_region",
+				],
+			},
+		},
+		"module_address":      "",
+		"name":                "aws",
+		"provider_config_key": "aws",
+		"version_constraint":  "~> 3.0",
+	},
+}
+
+resources = {
+	"aws_instance.my-ec2-vm": {
+		"address": "aws_instance.my-ec2-vm",
+		"config": {
+			"ami": {
+				"references": [
+					"data.aws_ami.amzlinux",
+				],
+			},
+			"instance_type": {
+				"references": [
+					"var.instance_type",
+				],
+			},
+			"key_name": {
+				"constant_value": "terraform-key",
+			},
+			"tags": {
+				"references": [
+					"count.index",
+				],
+			},
+			"user_data": {
+				"constant_value": null,
+			},
+			"vpc_security_group_ids": {
+				"references": [
+					"aws_security_group.vpc-ssh",
+					"aws_security_group.vpc-web",
+				],
+			},
+		},
+		"count": {
+			"constant_value": 2,
+		},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "my-ec2-vm",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_instance",
+	},
+	"aws_security_group.vpc-ssh": {
+		"address": "aws_security_group.vpc-ssh",
+		"config": {
+			"description": {
+				"constant_value": "Dev VPC SSH",
+			},
+			"name": {
+				"references": [
+					"terraform.workspace",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "vpc-ssh",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_security_group",
+	},
+	"aws_security_group.vpc-web": {
+		"address": "aws_security_group.vpc-web",
+		"config": {
+			"description": {
+				"constant_value": "Dev VPC web",
+			},
+			"name": {
+				"references": [
+					"terraform.workspace",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "vpc-web",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_security_group",
+	},
+	"data.aws_ami.amzlinux": {
+		"address": "data.aws_ami.amzlinux",
+		"config": {
+			"filter": [
+				{
+					"name": {
+						"constant_value": "name",
+					},
+					"values": {
+						"constant_value": [
+							"amzn2-ami-hvm-*-gp2",
+						],
+					},
+				},
+				{
+					"name": {
+						"constant_value": "root-device-type",
+					},
+					"values": {
+						"constant_value": [
+							"ebs",
+						],
+					},
+				},
+				{
+					"name": {
+						"constant_value": "virtualization-type",
+					},
+					"values": {
+						"constant_value": [
+							"hvm",
+						],
+					},
+				},
+				{
+					"name": {
+						"constant_value": "architecture",
+					},
+					"values": {
+						"constant_value": [
+							"x86_64",
+						],
+					},
+				},
+			],
+			"most_recent": {
+				"constant_value": true,
+			},
+			"owners": {
+				"constant_value": [
+					"amazon",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "amzlinux",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_ami",
+	},
+}
+
+provisioners = {}
+
+variables = {
+	"aws_region": {
+		"default":        null,
+		"description":    "Region in which AWS Resources to be created",
+		"module_address": "",
+		"name":           "aws_region",
+	},
+	"instance_type": {
+		"default":        null,
+		"description":    "EC2 Instance Type - Instance Sizing",
+		"module_address": "",
+		"name":           "instance_type",
+	},
+}
+
+outputs = {
+	"ec2_instance_publicip": {
+		"depends_on":     [],
+		"description":    "EC2 Instance Public IP",
+		"module_address": "",
+		"name":           "ec2_instance_publicip",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"aws_instance.my-ec2-vm",
+			],
+		},
+	},
+	"ec2_publicdns": {
+		"depends_on":     [],
+		"description":    "Public DNS URL of an EC2 Instance",
+		"module_address": "",
+		"name":           "ec2_publicdns",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"aws_instance.my-ec2-vm",
+			],
+		},
+	},
+}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

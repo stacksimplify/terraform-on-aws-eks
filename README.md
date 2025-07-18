@@ -1,169 +1,90 @@
-# [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://links.stacksimplify.com/terraform-on-aws-eks-kubernetes-iac-sre)
-
-[![Image](https://stacksimplify.com/course-images/terraform-on-aws-eks-kubernetes.png "Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos ")](https://links.stacksimplify.com/terraform-on-aws-eks-kubernetes-iac-sre)
-
+# HashiCorp Certified: Terraform Associate - 50 Practical Demos
+[![Image](https://stacksimplify.com/course-images/hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate)
 
 ## Course Modules
 01. Infrastructure as Code (IaC)
-02. Terraform Install Tools, Command and Language Basics
-03. Terraform Settings, Providers and Resources
-04. Terraform Input Variables, Output Values, Datasources
-05. Terraform Loops, MetaArguments, Splat Operator and Functions
-06. AWS VPC 3-Tier Architecture Design using Terraform
-07. Bastion Host AWS EC2 Instances, Security Groups, TF Provisioners with Terraform 
-08. AWS EKS Cluster, Public and Private Node Groups using Terraform
-09. Kubernetes Fundamentals
-10. Kubernetes Deployment and Service using YAML
-11. Terraform Kubernetes Provider - Kubernetes Deployment & Service
-12. Terraform Remote State Storage - AWS S3 & DynamoDB
-13. AWS EKS IAM Roles for Service Accounts (IRSA) using Terraform
-14. AWS EKS EBS CSI Driver Install with Self-Managed AddOn Option using Terraform
-15. AWS EKS EBS Demo using k8s YAML  (UserMgmt WebApp with MySQL DB)
-16. AWS EKS EBS Demo using k8s Terraform  (UserMgmt WebApp with MySQL DB)
-17. AWS EKS EBS Volumes Retain and Resize Settings
-18.  AWS EBS CSI EKS Add-On
-19. Provision AWS IAM Admin User as EKS Admin
-20. Provision AWS IAM Basic User as EKS Admin
-21. Provision of AWS Users (Admin & Basic) as EKS Admins using Terraform
-22. Provision EKS Admins using IAM Roles & IAM Groups
-23. Provision EKS Admins using IAM Roles & IAM Groups using Terraform
-24. Provision EKS ReadOnly User using IAM Roles, Groups & k8s CR, CRB
-25. Provision EKS Developer Users using IAM Roles, Groups & k8s R, RB
-26. AWS Load Balancer Controller Install using Terraform Helm Provider
-27. Ingress Basics - Automate with Terraform
-28. Ingress Context Path based Routing - Automate with Terraform
-29. Ingress SSL and SSL Redirect - Automate with Terraform
-30. Install ExternalDNS using Terraform Helm Provider
-31. Ingress with ExternalDNS - Automate with Terraform
-32. Kubernetes LB Service with ExternalDNS - Automate with Terraform
-33. Ingress Name based Virtual Host Routing- Automate with Terraform
-34. Ingress SSL Discovery Host
-35. Ingress SSL Discovery TLS
-36. Ingress Groups - Automate with Terraform
-37. Ingress Target Type IP - Automate with Terraform
-38. Ingress Internal Load Balancer - Automate with Terraform
-39. Ingress Cross Namespaces - Automate with Terraform
-40. AWS Network Load Balancer with AWS Load Balancer Controller
-41. AWS NLB TLS, External DNS with AWS LBC - Automate with Terraform
-42. AWS NLB Internal LB with AWS LBC - Automate with Terraform
-43. AWS EKS Fargate Profiles using Terraform
-44. Run EKS Workloads on AWS Fargate - Automate with Terraform
-45. AWS Fargate Only EKS Cluster using Terraform
-46. AWS EFS CSI Controller Install using Terraform Helm Provider
-47. AWS EFS Static Provisioning - Automate with Terraform
-48. AWS EFS Dynamic Provisioning - Automate with Terraform
-49. AWS EFS File System Mount for Fargate Workloads 
-50. Kubernetes Cluster Autoscaler Controller Install 
-51. Kubernetes Cluster Autoscaler Controller Test
-52. Kubernetes Horizontal Pod Autoscaling with Terraform
-53. Kubernetes Vertical Pod Autoscaling with Terraform
-54. AWS EKS Monitoring and Logging with kubectl
-55. AWS EKS Monitoring and Logging with Terraform
-
-
-
-## Kubernetes Concepts Covered
-01. Kubernetes Deployments
-02. Kubernetes Pods
-03. Kubernetes Service of Type LoadBalancer
-04. Kubernetes Service of Type ClusterIP
-05. Kubernetes Ingress Service
-06. Kubernetes Ingress Class
-07. Kubernetes Storage Class
-08. Kubernetes Storage Persistent Volume
-09. Kubernetes Storage Persistent Volume Claim
-10. Kubernetes RBAC
-11. Kubernetes Role
-12. Kubernetes Role Binding
-13. Kubernetes Cluster Role 
-14. Kubernetes Cluster Role Binding
-15. Kubernetes Cluster Autoscaler
-16. Kubernetes Vertical Pod Autoscaler
-17. Kubernetes Horizontal Pod Autoscaler
-18. Kubernetes DaemonSets
-19. Kubernetes Namespaces
-20. Kubernetes Service Accounts
-21. Kubernetes Groups
-22. Kubernetes ConfigMaps
-23. Kubernetes Requests and Limits
-24. Kubernetes Worker Nodes
-
-
-## Terraform Concepts covered
-01. Settings Block
-02. Providers Block
-03. Multiple Providers usage
-04. Dependency Lock File Importance
-05. Resources Syntax and Behavior
-06. Resources Meta-Argument - depends_on
-07. Resources Meta-Argument - count
-08. Resources Meta-Argument - for_each
-09. Resources Meta-Argument - lifecycle
-10. Input Variables - Basics
-11. Input Variables - Assign When Prompted
-12. Input Variables - Assign with terraform.tfvars
-13. Input Variables - Assign with auto tfvars
-14. Input Variables - Lists
-15. Input Variables - Maps
-16. File Function
-17. Output Values
-18. Local Values
-19. Datasources
-20. Backends - Remote State Storage
-21. File Provisioner
-22. remote-exec Provisioner
-23. local-exec Provisioner
-24. Null Resource
-25. Modules from Public Registry
-26. element function
-27. Remote State Datasource
-28. Terraform Datasources
-
-## Terraform Providers used
-1. AWS Terraform Provider
-2. Kubernetes Terraform Provider
-3. Kubectl Terraform Provider
-4. HTTP Terraform Provider
-5. Null Terraform Provider
-6. Helm Terraform Provider
-
+02. Install Tools on MacOs, LinuxOS and WindowsOS
+03. Command Basics
+04. Language Syntax
+05. Settings Block
+06. Providers Block
+07. Multiple Providers usage
+08. Dependency Lock File Importance
+09. Resources Syntax and Behavior
+10. Resources Meta-Argument - depends_on
+11. Resources Meta-Argument - count
+12. Resources Meta-Argument - for_each
+13. Resources Meta-Argument - lifecycle
+14. Input Variables - Basics
+15. Input Variables - Assign When Prompted
+16. Input Variables - Override default with cli var
+17. Input Variables - Override with environment variables
+18. Input Variables - Assign with terraform.tfvars
+19. Input Variables - Assign with tfvars var-file argument
+20. Input Variables - Assign with auto tfvars
+21. Input Variables - Lists
+22. Input Variables - Maps
+23. Input Variables - Validation Rules
+24. Input Variables - Sensitive Input Variables
+25. File Function
+26. Output Values
+27. Local Values
+28. Datasources
+29. Backends - Remote State Storage
+30. State Commands
+31. CLI Workspaces with local backend
+32. CLI Workspaces with remote backend
+33. File Provisioner
+34. local-exec Provisioner
+35. remote-exec Provisioner
+36. Null Resource
+37. Modules from Public Registry
+38. Build Local Module
+39. Terraform Cloud - VCS-Driven Worflow
+40. Terraform Cloud - CLI-Driven Worflow
+41. Terraform Cloud - Share modules in private module registry
+42. Migrate State to Terraform Cloud
+43. Basic Sentinel Policies
+44. Cost Control Sentinel Policies
+45. CIS Sentinel Policies
+46. State Import
+47. Graph
+48. Functions
+49. Dynamic Expressions
+50. Dynamic Blocks
 
 
 ## What will students learn in your course?
-- You will learn to master Terraform & Kubernetes on AWS EKS in a Real-world perspective with 55 demo's on AWS Cloud with 25+ Kubernetes and 25+ Terraform Concepts
-- You will learn Terraform Basics for 4.5 hours
-- You will build a AWS VPC 3-Tier network with Terraform
-- You will build a AWS EKS Cluster with Public and Private Node Groups with Terraform
-- You will learn Kubernetes Fundamentals for 3 hours
-- You will implement a simple kubernetes deployment and service using Terraform Kubernetes Provider
-- Understand and Implement Terraform Remote State Datasource
-- You will learn AWS EKS IRSA (IAM Roles for Service Accounts Concept) in detail and implement it with Terraform
-- You will master Kubernetes Storage concepts with AWS EBS CSI Controller by automating the whole install process with Terraform
-- You will master AWS EKS IAM Concepts with 7 detailed Demo
-- You will learn to implement AWS Load Balancer Controller Install on AWS EKS Cluster with Terraform
-- You will learn to implement 14 Ingress Service Demos (AWS Application Load Balancer) using Terraform Kubernetes Provider 
-- You will learn to implement 3 Kubernetes Service Demos for AWS Load Balancer Controller
-- You will master the AWS Fargate Concepts with 3 demos including running all workloads of EKS Cluster on AWS Fargate (Fargate Only EKS Cluster)
-- You will install Kubernetes Cluster Autoscaler on AWS EKS Cluster with Terraform and Test it
-- You will implement Horizontal and Vertical Pod Autoscaler Concepts with Terraform
-- You will learn to implement AWS EKS Monitoring and Logging using kubectl and Terraform
+- You will learn to master Terraform in a practical perspective with 40+ demo's
+- You will learn each and every concept of Terraform (basic to advanced)
+- You will learn to write and understand Terraform Resource Behavior in combination with all the Meta-Arguments
+- You will learn each and every way (10 types) you can implement the Terraform Input Variables
+- You will learn in detail about Terrafrom State, Remote Backends, Terraform Cloud Backends and many Terraform State commands
+- You will learn and implement Terraform CLI based workspaces
+- You will learn and implement all Terraform Provisioners 
+- You will learn and implement Terraform Modules with all 3 types (Public Modules, Local Modules and Private Registry modules on Terraform Cloud)
+- You will learn and implement two important usecases on Terraform Cloud (VCS-Driven and CLI-Driven Workflows)
+- You will learn about sentinel policies and implement 3 types of sentinel policies
+- You will learn and implement Terraform Dynamic Expressions, Dynamic Blocks and Terraform Functions
+- You will also learn and implement Terraform Datasources concept
 
-
-
-## What are the requirements or prerequisites for taking your course?
+## Are there any course requirements or prerequisites?
 - You must have an AWS Cloud account to follow with me for hands-on activities.
 - You don't need to have any basic knowledge of Terraform. Course will get started from very very basics of Terraform and take you to very advanced levels
-- You don't need to have any basic knowledge of Kubernetes. Course will get started from very very basics of Kubernetes and take you to very advanced levels
 
-## Who is this course for?
-- Infrastructure Architects or Sysadmins or Developers who are planning to master Terraform from Real-World perspective on AWS Cloud in combination with AWS Elastic Kubernetes Service (AWS EKS)
-- Any beginner who is interested in learning IaC Infrastructure as Code current trending tool Terraform with AWS Cloud
 
+
+## Who are your target students?
+- Infrastructure Architects or Sysadmins or Developers who are planning to master Terraform
+- Any beginner who is interested in learning IaC Infrastructure as Code current trending tool Terraform 
+- Anyone who want to learn Terraform from a practical perspective 
 
 ## Github Repositories used for this course
-- [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://github.com/stacksimplify/terraform-on-aws-eks)
-- [Course Presentation](https://github.com/stacksimplify/terraform-on-aws-eks/tree/main/course-presentation)
-- [Kubernetes Fundamentals](https://github.com/stacksimplify/kubernetes-fundamentals)
+- [HashiCorp Certified: Terraform Associate](https://github.com/stacksimplify/hashicorp-certified-terraform-associate)
+- [Terraform Cloud Demo](https://github.com/stacksimplify/terraform-cloud-demo1)
+- [Terraform Private Module Registry](https://github.com/stacksimplify/terraform-aws-s3-website)
+- [Terraform Sentinel Policies](https://github.com/stacksimplify/terraform-sentinel-policies)
+- [Course PPT Presentation](https://github.com/stacksimplify/hashicorp-certified-terraform-associate/tree/master/presentation)
 - **Important Note:** Please go to these repositories and FORK these repositories and make use of them during the course.
 
 
@@ -174,13 +95,10 @@
 - 30 Day "No Questions Asked" Money Back Guarantee!
 
 ## My Other AWS Courses
-- [Udemy Enroll](https://www.stacksimplify.com/azure-aks/courses/stacksimplify-best-selling-courses-on-udemy/)
+- [Udemy Enroll](https://github.com/stacksimplify/udemy-enroll)
 
 ## Stack Simplify Udemy Profile
 - [Udemy Profile](https://www.udemy.com/user/kalyan-reddy-9/)
-
-# HashiCorp Certified: Terraform Associate - 50 Practical Demos
-[![Image](https://stacksimplify.com/course-images/hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate) 
 
 # AWS EKS - Elastic Kubernetes Service - Masterclass
 [![Image](https://stacksimplify.com/course-images/AWS-EKS-Kubernetes-Masterclass-DevOps-Microservices-course.png "AWS EKS Kubernetes - Masterclass")](https://www.udemy.com/course/aws-eks-kubernetes-masterclass-devops-microservices/?referralCode=257C9AD5B5AF8D12D1E1)
@@ -189,17 +107,8 @@
 # Azure Kubernetes Service with Azure DevOps and Terraform 
 [![Image](https://stacksimplify.com/course-images/azure-kubernetes-service-with-azure-devops-and-terraform.png "Azure Kubernetes Service with Azure DevOps and Terraform")](https://www.udemy.com/course/azure-kubernetes-service-with-azure-devops-and-terraform/?referralCode=2499BF7F5FAAA506ED42)
 
-# Terraform on AWS with SRE & IaC DevOps | Real-World 20 Demos
-[![Image](https://stacksimplify.com/course-images/terraform-on-aws-best-seller.png "Terraform on AWS with SRE & IaC DevOps | Real-World 20 Demos")](https://links.stacksimplify.com/terraform-on-aws-with-sre-and-iacdevops)
-
 # Azure - HashiCorp Certified: Terraform Associate - 70 Demos
-[![Image](https://stacksimplify.com/course-images/azure-hashicorp-certified-terraform-associate-highest-rated.png "Azure - HashiCorp Certified: Terraform Associate - 70 Demos")](https://links.stacksimplify.com/azure-hashicorp-certified-terraform-associate)
-
-# Terraform on Azure with IaC DevOps and SRE | Real-World 25 Demos
-
-[![Image](https://stacksimplify.com/course-images/terraform-on-azure-with-iac-azure-devops-sre-1.png "Terraform on Azure with IaC DevOps and SRE | Real-World 25 Demos")](https://links.stacksimplify.com/terraform-on-azure-with-iac-devops-sre)
-
-
+[![Image](https://stacksimplify.com/course-images/azure-hashicorp-certified-terraform-associate-70demos.png "Azure - HashiCorp Certified: Terraform Associate - 70 Demos")](https://links.stacksimplify.com/azure-hashicorp-certified-terraform-associate)
 
 
 ## Additional References
@@ -208,10 +117,4 @@
 - [Study Guide](https://learn.hashicorp.com/tutorials/terraform/associate-study?in=terraform/certification)
 - [Exam Review Guide](https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification)
 - [Sample Questions](https://learn.hashicorp.com/tutorials/terraform/associate-questions?in=terraform/certification)
-
-
-
-
-
-
 

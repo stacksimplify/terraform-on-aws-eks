@@ -1,0 +1,4 @@
+#! /bin/bash
+sudo yum update -y
+sudo yum install -y ${package_name}
+sudo yum list installed | grep ${package_name} >> /tmp/package-installed-list.txt

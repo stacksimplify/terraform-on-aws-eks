@@ -1,0 +1,99 @@
+terraform_version = "0.14.7"
+
+outputs = {}
+
+resources = {
+	"aws_ami.amzlinux": {
+		"address":        "aws_ami.amzlinux",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "amzlinux",
+		"provider_name":  "registry.terraform.io/hashicorp/aws",
+		"tainted":        false,
+		"type":           "aws_ami",
+		"values": {
+			"architecture": "x86_64",
+			"arn":          "arn:aws:ec2:us-east-1::image/ami-038f1ca1bd58a5790",
+			"block_device_mappings": [
+				{
+					"device_name": "/dev/xvda",
+					"ebs": {
+						"delete_on_termination": "true",
+						"encrypted":             "false",
+						"iops":                  "0",
+						"snapshot_id":           "snap-0c6eac4e7d1d4d8a3",
+						"throughput":            "0",
+						"volume_size":           "8",
+						"volume_type":           "gp2",
+					},
+					"no_device":    "",
+					"virtual_name": "",
+				},
+			],
+			"creation_date":    "2021-03-04T19:36:15.000Z",
+			"description":      "Amazon Linux 2 AMI 2.0.20210303.0 x86_64 HVM gp2",
+			"ena_support":      true,
+			"executable_users": null,
+			"filter": [
+				{
+					"name": "architecture",
+					"values": [
+						"x86_64",
+					],
+				},
+				{
+					"name": "name",
+					"values": [
+						"amzn2-ami-hvm-*-gp2",
+					],
+				},
+				{
+					"name": "root-device-type",
+					"values": [
+						"ebs",
+					],
+				},
+				{
+					"name": "virtualization-type",
+					"values": [
+						"hvm",
+					],
+				},
+			],
+			"hypervisor":        "xen",
+			"id":                "ami-038f1ca1bd58a5790",
+			"image_id":          "ami-038f1ca1bd58a5790",
+			"image_location":    "amazon/amzn2-ami-hvm-2.0.20210303.0-x86_64-gp2",
+			"image_owner_alias": "amazon",
+			"image_type":        "machine",
+			"kernel_id":         null,
+			"most_recent":       true,
+			"name":              "amzn2-ami-hvm-2.0.20210303.0-x86_64-gp2",
+			"name_regex":        null,
+			"owner_id":          "137112412989",
+			"owners": [
+				"amazon",
+			],
+			"platform":          null,
+			"platform_details":  "Linux/UNIX",
+			"product_codes":     [],
+			"public":            true,
+			"ramdisk_id":        null,
+			"root_device_name":  "/dev/xvda",
+			"root_device_type":  "ebs",
+			"root_snapshot_id":  "snap-0c6eac4e7d1d4d8a3",
+			"sriov_net_support": "simple",
+			"state":             "available",
+			"state_reason": {
+				"code":    "UNSET",
+				"message": "UNSET",
+			},
+			"tags":                {},
+			"usage_operation":     "RunInstances",
+			"virtualization_type": "hvm",
+		},
+	},
+}
