@@ -1,0 +1,111 @@
+Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ kubectl describe deploy ebs-csi-controller -n kube-system
+Name:                   ebs-csi-controller
+Namespace:              kube-system
+CreationTimestamp:      Wed, 05 Jan 2022 09:38:32 +0530
+Labels:                 app.kubernetes.io/component=csi-driver
+                        app.kubernetes.io/instance=hr-dev-aws-ebs-csi-driver
+                        app.kubernetes.io/managed-by=Helm
+                        app.kubernetes.io/name=aws-ebs-csi-driver
+                        app.kubernetes.io/version=1.5.0
+                        helm.sh/chart=aws-ebs-csi-driver-2.6.2
+Annotations:            deployment.kubernetes.io/revision: 1
+                        meta.helm.sh/release-name: hr-dev-aws-ebs-csi-driver
+                        meta.helm.sh/release-namespace: kube-system
+Selector:               app=ebs-csi-controller,app.kubernetes.io/instance=hr-dev-aws-ebs-csi-driver,app.kubernetes.io/name=aws-ebs-csi-driver
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:           app=ebs-csi-controller
+                    app.kubernetes.io/component=csi-driver
+                    app.kubernetes.io/instance=hr-dev-aws-ebs-csi-driver
+                    app.kubernetes.io/managed-by=Helm
+                    app.kubernetes.io/name=aws-ebs-csi-driver
+                    app.kubernetes.io/version=1.5.0
+                    helm.sh/chart=aws-ebs-csi-driver-2.6.2
+  Service Account:  ebs-csi-controller-sa
+  Containers:
+   ebs-plugin:
+    Image:      602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver:v1.5.0
+    Port:       9808/TCP
+    Host Port:  0/TCP
+    Args:
+      controller
+      --endpoint=$(CSI_ENDPOINT)
+      --logtostderr
+      --v=2
+    Liveness:   http-get http://:healthz/healthz delay=10s timeout=3s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:healthz/healthz delay=10s timeout=3s period=10s #success=1 #failure=5
+    Environment:
+      CSI_ENDPOINT:           unix:///var/lib/csi/sockets/pluginproxy/csi.sock
+      CSI_NODE_NAME:           (v1:spec.nodeName)
+      AWS_ACCESS_KEY_ID:      <set to the key 'key_id' in secret 'aws-secret'>      Optional: true
+      AWS_SECRET_ACCESS_KEY:  <set to the key 'access_key' in secret 'aws-secret'>  Optional: true
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+   csi-provisioner:
+    Image:      k8s.gcr.io/sig-storage/csi-provisioner:v2.1.1
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+      --feature-gates=Topology=true
+      --extra-create-metadata
+      --leader-election=true
+      --default-fstype=ext4
+    Environment:
+      ADDRESS:  /var/lib/csi/sockets/pluginproxy/csi.sock
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+   csi-attacher:
+    Image:      k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+      --leader-election=true
+    Environment:
+      ADDRESS:  /var/lib/csi/sockets/pluginproxy/csi.sock
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+   csi-resizer:
+    Image:      k8s.gcr.io/sig-storage/csi-resizer:v1.1.0
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      --csi-address=$(ADDRESS)
+      --v=2
+    Environment:
+      ADDRESS:  /var/lib/csi/sockets/pluginproxy/csi.sock
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+   liveness-probe:
+    Image:      k8s.gcr.io/sig-storage/livenessprobe:v2.4.0
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      --csi-address=/csi/csi.sock
+    Environment:  <none>
+    Mounts:
+      /csi from socket-dir (rw)
+  Volumes:
+   socket-dir:
+    Type:               EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:             
+    SizeLimit:          <unset>
+  Priority Class Name:  system-cluster-critical
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   ebs-csi-controller-56dfd4fccc (2/2 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  7m11s  deployment-controller  Scaled up replica set ebs-csi-controller-56dfd4fccc to 2
+Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ 
