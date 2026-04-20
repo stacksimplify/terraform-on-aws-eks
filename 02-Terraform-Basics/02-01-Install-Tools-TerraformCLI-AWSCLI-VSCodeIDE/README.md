@@ -1,6 +1,6 @@
 # Terraform & AWS CLI Installation
 
-## Step-01: Introduction
+## Step-01: Introduction -step one installation
 - Install Terraform CLI
 - Install AWS CLI
 - Install VS Code Editor
