@@ -1,0 +1,11 @@
+Day1 : learning Git and basics
+	a) git branch
+	b) git merge
+	c) git stash
+	d) git switch 
+	e) git commit 
+	f) git reset 
+	g) git reset --soft --hard
+	h) git revert
+	i) git reset --soft HEAD
+
