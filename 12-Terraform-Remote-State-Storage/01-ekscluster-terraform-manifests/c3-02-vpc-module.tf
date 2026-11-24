@@ -11,7 +11,8 @@ module "vpc" {
   # VPC Basic Details
   name = local.eks_cluster_name
   cidr = var.vpc_cidr_block
-  azs             = data.aws_availability_zones.available.names
+  # azs             = data.aws_availability_zones.available.names           #comment out as it causes error availability zone has no capcity,need to add more zone so added code below
+  azs  = ["us-east-1a", "us-east-1b", "us-east-1c","us-east-1d","us-east-1f"]
   public_subnets  = var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets  
 
