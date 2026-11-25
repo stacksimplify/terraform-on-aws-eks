@@ -41,6 +41,13 @@ resource "aws_security_group" "vpc-web" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }  
+  ingress {
+    description = "Allow Port 8080"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }  
   egress {
     description = "Allow all ip and ports outbound"    
     from_port   = 0
