@@ -12,7 +12,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-stacksimplify"
     key    = "dev2/terraform.tfstate"
-    region = "us-east-1"  
+    region = "us-east-1"
 
     # For State Locking
     dynamodb_table = "terraform-dev-state-table"
@@ -33,15 +33,15 @@ resource "aws_instance" "ec2demo" {
 #####################################################################
 # Block-4: Input Variables Block
 variable "instance_type" {
-  default = "t2.micro"
+  default     = "t2.micro"
   description = "EC2 Instance Type"
-  type = string
+  type        = string
 }
 #####################################################################
 # Block-5: Output Values Block
 output "ec2_instance_publicip" {
   description = "EC2 Instance Public IP"
-  value = aws_instance.my-ec2-vm.public_ip
+  value       = aws_instance.my-ec2-vm.public_ip
 }
 #####################################################################
 # Block-6: Local Values Block
@@ -53,8 +53,8 @@ locals {
 # Block-7: Data sources Block
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
@@ -82,20 +82,20 @@ data "aws_ami" "amzlinux" {
 # AWS EC2 Instance Module
 
 module "ec2_cluster" {
-  source                 = "terraform-aws-modules/ec2-instance/aws"
+  source = "terraform-aws-modules/ec2-instance/aws"
   #version                = "~> 2.0"
   version = "5.5.0"
 
-  name                   = "my-modules-demo"
+  name = "my-modules-demo"
   #instance_count         = 2
 
   ami                    = data.aws_ami.amzlinux.id
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   key_name               = "terraform-key"
   monitoring             = true
-  vpc_security_group_ids = ["sg-08b25c5a5bf489ffa"]  # Get Default VPC Security Group ID and replace
-  subnet_id              = "subnet-4ee95470" # Get one public subnet id from default vpc and replace
-  user_data               = file("apache-install.sh")
+  vpc_security_group_ids = ["sg-08b25c5a5bf489ffa"] # Get Default VPC Security Group ID and replace
+  subnet_id              = "subnet-4ee95470"        # Get one public subnet id from default vpc and replace
+  user_data              = file("apache-install.sh")
 
   tags = {
     Terraform   = "true"

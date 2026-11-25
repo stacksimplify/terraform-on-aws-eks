@@ -101,11 +101,11 @@ Observations:
 - **Important Note:** verify if default VPC security group has a rule to allow port 80
 ```t
 # Access index.html
-http://<PUBLIC-IP>/index.html
-http://<PUBLIC-IP>/app1/index.html
+http://13.221.130.157/index.html
+http://13.221.130.157/app1/index.html
 
 # Access metadata.html
-http://<PUBLIC-IP>/app1/metadata.html
+http://13.221.130.157/app1/metadata.html
 ```
 
 ## Step-08: Terraform State - Basics
